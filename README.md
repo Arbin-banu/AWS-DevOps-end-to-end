@@ -70,6 +70,57 @@ artifacts:
 
   
 Follow these steps and go further.
+  
+  
+  Here completes your CodeBuild part.
+  
+  Now go further for CodeDeploy part.
+  
+  1. Click on CodeDeploy
+  2. Create a new application
+  3. And select cloud platform as EC2
+  4. next create a deployment group
+  5. Create an IAM role with below mentioned permissions:
+  
+ AmazonS3FullAccess	
+AmazonEC2RoleforAWSCodeDeployLimited	
+AWSCodeDeployRole
+AWSCodeDeployFullAccess	
+AmazonEC2RoleforAWSCodeDeploy	
+AmazonEC2FullAccess
+  
+  after creating the role, go to trust relationship tab and edit the policy and add this new policy :
+  
+  {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "codedeploy.amazonaws.com",
+          "ec2.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+  
+  and save the role
+  
+6. Copy the ARN of the iam role and paste it under service role in deployment group
+  
+7. Select amazon EC2 instance under environment configuration
+8. launch an ec2 instance , and then come back to deployment group and add that ec2 instance name
+  
+ 9. Uncheck the load balancer checkbox.
+  
+  Finally deployment group is succesfully created.
+  
+  Now you can go further.
+  
+  
 
   
   
