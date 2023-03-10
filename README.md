@@ -171,6 +171,10 @@ Now build your project again
   AmazonEC2FullAccess
   CodeDeployFullAccess
  S3FullAccess
+
+  1. Now go back to your instance cat install.sh
+  $sudo service codedeploy-agent restart
+  
   
   
   
