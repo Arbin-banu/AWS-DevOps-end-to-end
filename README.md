@@ -165,6 +165,12 @@ Now build your project again
   1. Go to CodeDeploy -> Create a deployment
   2. give the path of s3 zip file, and select zip
   3. create deployment
-  4. 
+  4. Deployment will be in pending state
+  
+  Create a new role ec2deployment with permissions:
+  AmazonEC2FullAccess
+  CodeDeployFullAccess
+ S3FullAccess
+  
   
   
