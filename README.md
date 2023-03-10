@@ -161,6 +161,10 @@ sudo service nginx start
   git status 
  3. and push all the files to CodeCommit
   
-  
+Now build your project again
+  1. Go to CodeDeploy -> Create a deployment
+  2. give the path of s3 zip file, and select zip
+  3. create deployment
+  4. 
   
   
