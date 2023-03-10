@@ -121,7 +121,46 @@ AmazonEC2FullAccess
   Now you can go further.
   
   
+Now connect to your old instance and ls
+  buildspec.yml index.html sample.txt
+  
+  1. Create a new file vi appspec.yml
+  version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html
+hooks:
+  AfterInstall:
+    - location: script/install_nginx.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: script/start_nginx.sh
+      timeout: 300
+      runas: root
+  
+ 2. Create a directory mkdir scripts
+  
+  vi install_nginx.sh
+  
+  #!/bin/bash
 
+sudo apt-get update
+sudo apt-get install -y nginx
+  
+  
+  vi start_nginx.sh
+  
+  #!/bin/bash
+
+sudo service nginx start
+  
+  Save both the files and come back with cd ..
+  
+  git status 
+ 3. and push all the files to CodeCommit
+  
   
   
   
